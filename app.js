@@ -98,15 +98,19 @@ function randomCardBg() {
 
 function cardPlaceholder() {
     // populate credit card with placeholders
-    const templateNumber = `<span>#</span><span>#</span><span>#</span><span>#</span><span>&nbsp;</span>`;
+    const templateNumber = `<span>#</span><span class="numberItem"></span><span>#</span><span class="numberItem"></span><span>#</span><span class="numberItem"></span><span>#</span><span class="numberItem"></span><span>&nbsp;</span><span class="numberItem"></span>`;
+    // const templateNumber = `<span>#</span><span class="numberItem"></span><span>#</span><span class="numberItem"></span><span>#</span><span class="numberItem"></span><span>#</span><span class="numberItem"></span><span>&nbsp;</span>`;
     for (let i = 0; i < 4; i++) {
         cardNumber.innerHTML += templateNumber;
     }
     let last = cardNumber.lastChild;
     cardNumber.removeChild(last);
     spans = document.querySelectorAll(
-        'span:not(.date):not(.cvv):not(.danger):not(.hide)'
+        'span:not(.date):not(.cvv):not(.danger):not(.hide):not(.numberItem)'
     );
+    //     spans.forEach((span) => {
+    //         span.classList.add('effect');
+    //     });
 }
 
 function generateMonths() {
@@ -157,17 +161,38 @@ function getPattern(pattern) {
 
 // TODO: to refactor
 function deleteHandler(e) {
-    if (e.keyCode === 8 || e.keyCode === 46) {
+    if (
+        (spans[values.length - 1] !== undefined && e.keyCode === 8) ||
+        e.keyCode === 46
+    ) {
         value = inputNumber.value;
 
         if (spaceIndex.includes(value.length - 1)) {
             value = value.slice(0, -1);
             inputNumber.value = value;
             spans[values.length - 1].textContent = ' #';
+            spans[values.length - 1].classList.remove(
+                'slide-fade-up-disappear'
+            );
+            spans[values.length - 1].nextSibling.classList.remove(
+                'slide-fade-up-appear'
+            );
         } else if (spans[values.length - 1].textContent == ' ') {
             spans[values.length - 1].textContent = ' ';
+            spans[values.length - 1].classList.remove(
+                'slide-fade-up-disappear'
+            );
+            spans[values.length - 1].nextSibling.classList.remove(
+                'slide-fade-up-appear'
+            );
         } else {
             spans[values.length - 1].textContent = '#';
+            spans[values.length - 1].classList.remove(
+                'slide-fade-up-disappear'
+            );
+            spans[values.length - 1].nextSibling.classList.remove(
+                'slide-fade-up-appear'
+            );
         }
     } else {
         e.preventDefault();
@@ -182,8 +207,16 @@ function deleteHandler(e) {
                 spans[i].textContent == String.fromCharCode(160) // check for &nbsp;
             ) {
                 spans[i].textContent = ' ';
+                spans[i].classList.remove('slide-fade-up-disappear');
+                spans[i].nextSibling !== null
+                    ? spans[i].nextSibling.classList.remove(
+                          'slide-fade-up-appear'
+                      )
+                    : false;
             } else {
                 spans[i].textContent = '#';
+                spans[i].classList.remove('slide-fade-up-disappear');
+                spans[i].nextSibling.classList.remove('slide-fade-up-appear');
             }
         }
     }
@@ -205,7 +238,10 @@ function mapCardNumbers(e) {
     values = [...value];
 
     values.map((span, index) => {
-        spans[index].innerHTML = values[index];
+        spans[index].innerHTML = `<span>${spans[index].textContent}</span>`;
+        spans[index].classList.add('slide-fade-up-disappear');
+        spans[index].nextSibling.innerHTML = `<span>${values[index]}</span>`;
+        spans[index].nextSibling.classList.add('slide-fade-up-appear');
     });
 
     // check if credit card number is complete,then switch automatically to input name
@@ -222,10 +258,10 @@ function focusOut() {
     value.length > 0 ? (values = value.split('')) : false;
     if (values.length > 10 && inputNumber.value !== '') {
         for (let i = 0; i < spans.length - 4; i++) {
-            if (spans[i].textContent !== ' ') {
-                spans[i].innerHTML = '*';
+            if (spans[i].nextSibling.textContent !== ' ') {
+                spans[i].nextSibling.innerHTML = '*';
             } else {
-                spans[i].innerHTML = ' ';
+                spans[i].nextSibling.innerHTML = ' ';
             }
         }
     }
@@ -248,8 +284,8 @@ function focusOut() {
 function focusIn() {
     if (values.length > 5) {
         for (let i = 0; i < values.length; i++) {
-            if (spans[i].textContent !== ' ') {
-                spans[i].innerHTML = values[i];
+            if (spans[i].nextSibling.textContent !== ' ') {
+                spans[i].nextSibling.innerHTML = values[i];
             }
         }
     }
