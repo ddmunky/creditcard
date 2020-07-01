@@ -61,6 +61,7 @@ inputNumber.addEventListener('focus', focusIn);
 // card holder input name handler
 inputName.addEventListener('keyup', cardNameHandler);
 
+// move vertically card on mobile when changing inputs
 inputName.addEventListener('focus', (e) => {
     console.log(e.view.innerWidth);
     if (e.view.innerWidth < 500) {
@@ -87,7 +88,6 @@ inputMonths.addEventListener('blur', (e) => {
             'translateY(0px)';
     }
 });
-
 inputYears.addEventListener('focus', (e) => {
     if (e.view.innerWidth < 500) {
         document.querySelector('.card-block').style.transform =
