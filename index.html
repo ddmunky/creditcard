@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <script src="app.js" defer type="module"></script>
+        <title>Credit Card Form</title>
+    </head>
+    <body>
+        <section class="container">
+            <div class="card-block">
+                <div class="card-block__side card-block__side--front">
+                    <div class="card-item">
+                        <div class="card-item__chip"></div>
+                        <div class="card-item__logo"></div>
+                        <div class="card-item__number"></div>
+                        <div class="card-item__name">John Doe</div>
+                        <div class="card-item__date">
+                            <span class="date" id="month">MM</span>
+                            <span class="date">/</span>
+                            <span class="date" id="year">YY</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-block__side card-block__side--back">
+                    <div class="card-item">
+                        <div class="card-item__stripe"></div>
+                        <div class="card-item__cvv">
+                            <span class="cvv">*</span>
+                            <span class="cvv">*</span>
+                            <span class="cvv">*</span>
+                        </div>
+                        <div class="card-item__logo--back"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-block">
+                <form action="" class="form-item">
+                    <div class="form-item__number">
+                        <label for="card-number"
+                            >Card Number
+                            <span class="hide danger"
+                                >is either incomplete or invalid</span
+                            ></label
+                        >
+                        <input
+                            type="text"
+                            name="card-number"
+                            id="card-number"
+                            class="form-input"
+                            maxlength="19"
+                            required
+                        />
+                    </div>
+                    <div class="form-item__name">
+                        <label for="name"
+                            >Card Holder
+                            <span class="hide danger"
+                                >name must be 3 or more characters long</span
+                            ></label
+                        >
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            class="form-input"
+                            minlength="2"
+                            required
+                        />
+                    </div>
+                    <div class="form-item__group">
+                        <div class="form-item__month">
+                            <label for="date-month"
+                                >Expiration Date
+                                <span class="hide danger"
+                                    >is invalid</span
+                                ></label
+                            >
+                            <select
+                                name="date-month"
+                                id="date-month"
+                                class="form-input form-input--select"
+                            >
+                                <option
+                                    value="Month"
+                                    selected="true"
+                                    disabled="disabled"
+                                    >Month</option
+                                >
+                            </select>
+                        </div>
+                        <div class="form-item__year">
+                            <label for="date-year"
+                                >&nbsp;<span class="hide danger"></span
+                            ></label>
+                            <select
+                                name="date-year"
+                                id="date-year"
+                                class="form-input form-input--select"
+                            >
+                                <option
+                                    value="year"
+                                    selected="true"
+                                    disabled="disabled"
+                                    >Year</option
+                                >
+                            </select>
+                        </div>
+                        <div class="form-item__cvv">
+                            <label for="cvv"
+                                >CVV
+                                <span class="hide danger"
+                                    >is invalid</span
+                                ></label
+                            >
+                            <input
+                                type="text"
+                                name="cvv"
+                                id="cvv"
+                                class="form-input"
+                                maxlength="3"
+                            />
+                        </div>
+                    </div>
+                    <button class="form-item__button" type="submit">
+                        Submit
+                    </button>
+                    <div class="form-item__reset"><a href="#">Reset</a></div>
+                </form>
+            </div>
+        </section>
+    </body>
+</html>
