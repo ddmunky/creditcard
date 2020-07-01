@@ -15,11 +15,15 @@ function submitForm() {
 // Using event delegation
 function attachKeyUpEvent() {
     loginForm.addEventListener('keyup', function (e) {
-        const nodeName = e.target.nodeName;
-        const inputProps = e.target;
+        if (e.keyCode !== 9) {
+            const nodeName = e.target.nodeName;
+            const inputProps = e.target;
 
-        if (nodeName === 'INPUT') {
-            validateForm(inputProps);
+            if (nodeName === 'INPUT') {
+                validateForm(inputProps);
+            }
+        } else {
+            console.log(e.keyCode);
         }
     });
 }

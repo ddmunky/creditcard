@@ -99,7 +99,7 @@ function randomCardBg() {
 function cardPlaceholder() {
     // populate credit card with placeholders
     const templateNumber = `<span>#</span><span class="numberItem"></span><span>#</span><span class="numberItem"></span><span>#</span><span class="numberItem"></span><span>#</span><span class="numberItem"></span><span>&nbsp;</span><span class="numberItem"></span>`;
-    // const templateNumber = `<span>#</span><span class="numberItem"></span><span>#</span><span class="numberItem"></span><span>#</span><span class="numberItem"></span><span>#</span><span class="numberItem"></span><span>&nbsp;</span>`;
+
     for (let i = 0; i < 4; i++) {
         cardNumber.innerHTML += templateNumber;
     }
@@ -108,9 +108,6 @@ function cardPlaceholder() {
     spans = document.querySelectorAll(
         'span:not(.date):not(.cvv):not(.danger):not(.hide):not(.numberItem)'
     );
-    //     spans.forEach((span) => {
-    //         span.classList.add('effect');
-    //     });
 }
 
 function generateMonths() {
@@ -257,7 +254,7 @@ function mapCardNumbers(e) {
 function focusOut() {
     value.length > 0 ? (values = value.split('')) : false;
     if (values.length > 10 && inputNumber.value !== '') {
-        for (let i = 0; i < spans.length - 4; i++) {
+        for (let i = 0; i < spans.length - 5; i++) {
             if (spans[i].nextSibling.textContent !== ' ') {
                 spans[i].nextSibling.innerHTML = '*';
             } else {
