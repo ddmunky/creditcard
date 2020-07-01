@@ -6,7 +6,7 @@ const logoBack = document.querySelector('.card-item__logo--back');
 const bgFront = document.querySelector('.card-block__side--front');
 const bgBack = document.querySelector('.card-block__side--back');
 const inputNumber = document.getElementById('card-number');
-const inputName = document.querySelector('.form-item__name');
+const inputName = document.getElementById('name');
 const cardNumber = document.querySelector('.card-item__number');
 const cardName = document.querySelector('.card-item__name');
 const inputMonths = document.getElementById('date-month');
@@ -60,6 +60,58 @@ inputNumber.addEventListener('focus', focusIn);
 
 // card holder input name handler
 inputName.addEventListener('keyup', cardNameHandler);
+
+inputName.addEventListener('focus', (e) => {
+    console.log(e.view.innerWidth);
+    if (e.view.innerWidth < 500) {
+        document.querySelector('.card-block').style.transform =
+            'translateY(100px)';
+    }
+});
+inputName.addEventListener('blur', (e) => {
+    console.log('out of name');
+    if (e.view.innerWidth < 500) {
+        document.querySelector('.card-block').style.transform =
+            'translateY(0px)';
+    }
+});
+inputMonths.addEventListener('focus', (e) => {
+    if (e.view.innerWidth < 500) {
+        document.querySelector('.card-block').style.transform =
+            'translateY(180px)';
+    }
+});
+inputMonths.addEventListener('blur', (e) => {
+    if (e.view.innerWidth < 500) {
+        document.querySelector('.card-block').style.transform =
+            'translateY(0px)';
+    }
+});
+
+inputYears.addEventListener('focus', (e) => {
+    if (e.view.innerWidth < 500) {
+        document.querySelector('.card-block').style.transform =
+            'translateY(180px)';
+    }
+});
+inputYears.addEventListener('blur', (e) => {
+    if (e.view.innerWidth < 500) {
+        document.querySelector('.card-block').style.transform =
+            'translateY(0px)';
+    }
+});
+inputCvv.addEventListener('focus', (e) => {
+    if (e.view.innerWidth < 500) {
+        document.querySelector('.card-block').style.transform =
+            'translateY(310px)';
+    }
+});
+inputCvv.addEventListener('blur', (e) => {
+    if (e.view.innerWidth < 500) {
+        document.querySelector('.card-block').style.transform =
+            'translateY(0px)';
+    }
+});
 
 // Expiration date handler
 inputMonths.addEventListener('change', ({ target }) => {
