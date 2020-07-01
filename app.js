@@ -89,10 +89,10 @@ reset.addEventListener('click', () => document.location.reload());
 function randomCardBg() {
     // display random background
     let random = Math.floor(Math.random() * 6) + 1;
-    bgFront.style.backgroundImage = `url('./assets/bg-${random}-min.jpg')`;
+    bgFront.style.backgroundImage = `url('https://atpacbwsyo.cloudimg.io/v7/creditcardform.imfast.io/assets/bg-${random}-min.jpg')`;
     bgFront.style.backgroundSize = 'cover';
 
-    bgBack.style.backgroundImage = `url('./assets/bg-${random}-min.jpg')`;
+    bgBack.style.backgroundImage = `url('https://atpacbwsyo.cloudimg.io/v7/creditcardform.imfast.io/assets/bg-${random}-min.jpg')`;
     bgBack.style.backgroundSize = 'cover';
 }
 
