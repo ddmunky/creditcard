@@ -38,7 +38,8 @@ body {
     z-index: 1;
     box-shadow: 0 0 5rem 2rem rgba(0, 0, 0, 0.4); }
   100% {
-    transform: translateY(0%); } }
+    transform: translateY(0%);
+    box-shadow: 0; } }
 
 .card-block {
   max-width: 43rem;
@@ -47,6 +48,7 @@ body {
   height: 27rem;
   z-index: 5;
   position: relative;
+  border-radius: 1.5rem;
   perspective: 200rem;
   -moz-perspective: 200rem;
   transition: all 1s ease-in-out;
