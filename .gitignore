@@ -3,3 +3,5 @@ style.comp.css
 style.prefix.css
 main.scss
 
+.DS_Store
+assets/.DS_Store
