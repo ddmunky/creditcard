@@ -165,11 +165,11 @@ function generateMonths() {
     }
     // populate select inputs + add disabled attribute to months already past
     let monthsList = months.map((month) => {
-        if (month <= new Date().getMonth()) {
-            return `<option value="${month}" disabled="disabled">${month}</option>`;
-        } else {
-            return `<option value="${month}">${month}</option>`;
-        }
+        // if (month <= new Date().getMonth()) {
+        //     return `<option value="${month}" disabled="disabled">${month}</option>`;
+        // } else {
+        return `<option value="${month}">${month}</option>`;
+        // }
     });
     inputMonths.innerHTML += monthsList;
 }
