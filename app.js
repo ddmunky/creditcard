@@ -65,51 +65,43 @@ inputName.addEventListener('keyup', cardNameHandler);
 inputName.addEventListener('focus', (e) => {
     console.log(e.view.innerWidth);
     if (e.view.innerWidth < 500) {
-        document.querySelector('.card-block').style.transform =
-            'translateY(100px)';
+        document.querySelector('.card-block').style.transform = 'translateY(100px)';
     }
 });
 inputName.addEventListener('blur', (e) => {
     console.log('out of name');
     if (e.view.innerWidth < 500) {
-        document.querySelector('.card-block').style.transform =
-            'translateY(0px)';
+        document.querySelector('.card-block').style.transform = 'translateY(0px)';
     }
 });
 inputMonths.addEventListener('focus', (e) => {
     if (e.view.innerWidth < 500) {
-        document.querySelector('.card-block').style.transform =
-            'translateY(180px)';
+        document.querySelector('.card-block').style.transform = 'translateY(180px)';
     }
 });
 inputMonths.addEventListener('blur', (e) => {
     if (e.view.innerWidth < 500) {
-        document.querySelector('.card-block').style.transform =
-            'translateY(0px)';
+        document.querySelector('.card-block').style.transform = 'translateY(0px)';
     }
 });
 inputYears.addEventListener('focus', (e) => {
     if (e.view.innerWidth < 500) {
-        document.querySelector('.card-block').style.transform =
-            'translateY(180px)';
+        document.querySelector('.card-block').style.transform = 'translateY(180px)';
     }
 });
 inputYears.addEventListener('blur', (e) => {
     if (e.view.innerWidth < 500) {
-        document.querySelector('.card-block').style.transform =
-            'translateY(0px)';
+        document.querySelector('.card-block').style.transform = 'translateY(0px)';
     }
 });
 inputCvv.addEventListener('focus', (e) => {
     if (e.view.innerWidth < 500) {
-        document.querySelector('.card-block').style.transform =
-            'translateY(310px)';
+        document.querySelector('.card-block').style.transform = 'translateY(310px)';
     }
 });
 inputCvv.addEventListener('blur', (e) => {
     if (e.view.innerWidth < 500) {
-        document.querySelector('.card-block').style.transform =
-            'translateY(0px)';
+        document.querySelector('.card-block').style.transform = 'translateY(0px)';
     }
 });
 
@@ -141,10 +133,10 @@ reset.addEventListener('click', () => document.location.reload());
 function randomCardBg() {
     // display random background
     let random = Math.floor(Math.random() * 6) + 1;
-    bgFront.style.backgroundImage = `url('https://atpacbwsyo.cloudimg.io/v7/creditcardform.imfast.io/assets/bg-${random}-min.jpg')`;
+    bgFront.style.backgroundImage = `url('https://atpacbwsyo.cloudimg.io/v7/creditcardform.imfast.io/assets/bg-${random}-min.webp')`;
     bgFront.style.backgroundSize = 'cover';
 
-    bgBack.style.backgroundImage = `url('https://atpacbwsyo.cloudimg.io/v7/creditcardform.imfast.io/assets/bg-${random}-min.jpg')`;
+    bgBack.style.backgroundImage = `url('https://atpacbwsyo.cloudimg.io/v7/creditcardform.imfast.io/assets/bg-${random}-min.webp')`;
     bgBack.style.backgroundSize = 'cover';
 }
 
@@ -190,9 +182,7 @@ function generateYears() {
     }
 
     // populate select inputs
-    let yearsList = years.map(
-        (year) => `<option value="${year}">${year}</option>`
-    );
+    let yearsList = years.map((year) => `<option value="${year}">${year}</option>`);
     inputYears.innerHTML += yearsList;
 }
 
@@ -210,38 +200,23 @@ function getPattern(pattern) {
 
 // TODO: to refactor
 function deleteHandler(e) {
-    if (
-        (spans[values.length - 1] !== undefined && e.keyCode === 8) ||
-        e.keyCode === 46
-    ) {
+    if ((spans[values.length - 1] !== undefined && e.keyCode === 8) || e.keyCode === 46) {
         value = inputNumber.value;
 
         if (spaceIndex.includes(value.length - 1)) {
             value = value.slice(0, -1);
             inputNumber.value = value;
             spans[values.length - 1].textContent = ' #';
-            spans[values.length - 1].classList.remove(
-                'slide-fade-up-disappear'
-            );
-            spans[values.length - 1].nextSibling.classList.remove(
-                'slide-fade-up-appear'
-            );
+            spans[values.length - 1].classList.remove('slide-fade-up-disappear');
+            spans[values.length - 1].nextSibling.classList.remove('slide-fade-up-appear');
         } else if (spans[values.length - 1].textContent == ' ') {
             spans[values.length - 1].textContent = ' ';
-            spans[values.length - 1].classList.remove(
-                'slide-fade-up-disappear'
-            );
-            spans[values.length - 1].nextSibling.classList.remove(
-                'slide-fade-up-appear'
-            );
+            spans[values.length - 1].classList.remove('slide-fade-up-disappear');
+            spans[values.length - 1].nextSibling.classList.remove('slide-fade-up-appear');
         } else {
             spans[values.length - 1].textContent = '#';
-            spans[values.length - 1].classList.remove(
-                'slide-fade-up-disappear'
-            );
-            spans[values.length - 1].nextSibling.classList.remove(
-                'slide-fade-up-appear'
-            );
+            spans[values.length - 1].classList.remove('slide-fade-up-disappear');
+            spans[values.length - 1].nextSibling.classList.remove('slide-fade-up-appear');
         }
     } else {
         e.preventDefault();
@@ -258,9 +233,7 @@ function deleteHandler(e) {
                 spans[i].textContent = ' ';
                 spans[i].classList.remove('slide-fade-up-disappear');
                 spans[i].nextSibling !== null
-                    ? spans[i].nextSibling.classList.remove(
-                          'slide-fade-up-appear'
-                      )
+                    ? spans[i].nextSibling.classList.remove('slide-fade-up-appear')
                     : false;
             } else {
                 spans[i].textContent = '#';
