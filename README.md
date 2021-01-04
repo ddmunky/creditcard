@@ -9,7 +9,7 @@
   </a>
 </p>
 
-> AirQuality is a simple widget collecting data about your current location air quality index.
+> Simple form project with some neat animations
 
 ### 🏠 [Homepage](https://creditcardform.netlify.app/)
 
