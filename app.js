@@ -133,10 +133,10 @@ reset.addEventListener('click', () => document.location.reload());
 function randomCardBg() {
     // display random background
     let random = Math.floor(Math.random() * 6) + 1;
-    bgFront.style.backgroundImage = `url('https://atpacbwsyo.cloudimg.io/v7/creditcardform.imfast.io/assets/bg-${random}-min.webp')`;
+    bgFront.style.backgroundImage = `url('https://atpacbwsyo.cloudimg.io/v7/creditcardform.netlify.app/assets/bg-${random}-min.webp')`;
     bgFront.style.backgroundSize = 'cover';
 
-    bgBack.style.backgroundImage = `url('https://atpacbwsyo.cloudimg.io/v7/creditcardform.imfast.io/assets/bg-${random}-min.webp')`;
+    bgBack.style.backgroundImage = `url('https://atpacbwsyo.cloudimg.io/v7/creditcardform.netlify.app/assets/bg-${random}-min.webp')`;
     bgBack.style.backgroundSize = 'cover';
 }
 
