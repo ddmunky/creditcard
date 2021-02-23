@@ -63,13 +63,13 @@ inputName.addEventListener('keyup', cardNameHandler);
 
 // move vertically card on mobile when changing inputs
 inputName.addEventListener('focus', (e) => {
-    console.log(e.view.innerWidth);
+    // console.log(e.view.innerWidth);
     if (e.view.innerWidth < 500) {
         document.querySelector('.card-block').style.transform = 'translateY(100px)';
     }
 });
 inputName.addEventListener('blur', (e) => {
-    console.log('out of name');
+    // console.log('out of name');
     if (e.view.innerWidth < 500) {
         document.querySelector('.card-block').style.transform = 'translateY(0px)';
     }

@@ -7,7 +7,7 @@ function submitForm() {
     submitBtn.addEventListener('click', function (e) {
         event.preventDefault();
         manageState().validateState();
-        console.log(validationState);
+        // console.log(validationState);
     });
 }
 
@@ -23,7 +23,7 @@ function attachKeyUpEvent() {
                 validateForm(inputProps);
             }
         } else {
-            console.log(e.keyCode);
+            // console.log(e.keyCode);
         }
     });
 }
@@ -96,9 +96,7 @@ function validationRules() {
             const cardNumberValidationRule = /^(?:4[0-9]{15}|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/;
             const inputValue = inputProps.value.replace(/\s/g, '');
             const inputName = inputProps.name;
-            const isInputValid = cardNumberValidationRule.test(
-                inputValue.replace(/\s/g, '')
-            );
+            const isInputValid = cardNumberValidationRule.test(inputValue.replace(/\s/g, ''));
             isInputValid
                 ? manageState().removeFromState({ inputProps, inputName })
                 : manageState().addToState({ inputProps, inputName });
@@ -153,17 +151,12 @@ function validationRules() {
         },
         emptyFields: () => {
             const formInputElems = [...loginForm.elements].filter(
-                (item) =>
-                    item.nodeName === 'INPUT' || item.nodeName === 'SELECT'
+                (item) => item.nodeName === 'INPUT' || item.nodeName === 'SELECT'
             );
             for (const inputProps of formInputElems) {
                 const inputName = inputProps.name;
                 const inputValue = inputProps.value;
-                if (
-                    !inputValue ||
-                    inputValue === 'Month' ||
-                    inputValue === 'year'
-                ) {
+                if (!inputValue || inputValue === 'Month' || inputValue === 'year') {
                     manageState().addToState({ inputProps, inputName });
                 }
             }
