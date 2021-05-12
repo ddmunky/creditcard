@@ -30,16 +30,19 @@ body {
   0% {
     transform: translateY(40%);
     z-index: -1;
-    box-shadow: 0 0 20rem 5rem rgba(0, 0, 0, 0.8); }
+    box-shadow: 0 0 20rem 5rem rgba(0, 0, 0, 0.8);
+    filter: blur(6px); }
   50% {
     transform: translateY(-70%);
     box-shadow: 0 0 10rem 5rem rgba(0, 0, 0, 0.6); }
   75% {
     z-index: 1;
-    box-shadow: 0 0 5rem 2rem rgba(0, 0, 0, 0.4); }
+    box-shadow: 0 0 5rem 2rem rgba(0, 0, 0, 0.4);
+    filter: blur(2px); }
   100% {
     transform: translateY(0%);
-    box-shadow: 0; } }
+    box-shadow: 0;
+    filter: blur(0); } }
 
 .card-block {
   max-width: 43rem;
