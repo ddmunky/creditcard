@@ -171,7 +171,7 @@ body {
   .card-item__stripe {
     background-color: #000;
     height: 6rem;
-    width: 43rem;
+    width: 39rem;
     grid-column: 1 / -1;
     align-self: center;
     justify-self: center; }
